@@ -70,7 +70,8 @@
   "Get list entry for note specified by FILE."
   (let* ((key (file-name-nondirectory file))
          (note-info (simplenote2--get-note-info key))
-         (date (simplenote2--file-mtime file))
+         ;;(date (simplenote2--file-mtime file))
+         (date  (nth 5 (file-attributes file)))  
          (note (simplenote2--get-file-string file))
          (header (concat (and (nth 6 note-info) "* ")
                          (simplenote2--note-headline note)))
